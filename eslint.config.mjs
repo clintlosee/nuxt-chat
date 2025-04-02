@@ -1,6 +1,14 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
+import withNuxt from "./.nuxt/eslint.config.mjs";
+import prettier from "eslint-plugin-prettier";
+import configPrettier from "eslint-config-prettier";
 
 export default withNuxt(
-  // Your custom configs here
-)
+  {
+    plugins: { prettier },
+    rules: {
+      "prettier/prettier": ["error", { endOfLine: "auto" }],
+    },
+  },
+  configPrettier,
+);
