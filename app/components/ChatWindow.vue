@@ -1,12 +1,20 @@
 <script setup lang="ts">
-const { chat, messages, sendMessage } = useChat();
+import type { ChatMessage, Chat } from '~/types';
+
+const props = defineProps<{
+  chat: Chat;
+  messages: ChatMessage[];
+}>();
+
+const emit = defineEmits(['send-message']);
+
 const { showScrollButton, scrollToBottom, pinToBottom } = useChatScroll();
 
 function handleSendMessage(message: string) {
-  sendMessage(message);
+  emit('send-message', message);
 }
 
-watch(() => messages.value, pinToBottom, { deep: true });
+watch(() => props.messages, pinToBottom, { deep: true });
 </script>
 
 <template>
