@@ -1,5 +1,9 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const { chat, messages, sendMessage } = useChat();
+
+useHead({
+  title: chat?.value?.title || 'Chat',
+});
 </script>
 
 <template>
