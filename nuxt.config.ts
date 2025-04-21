@@ -8,9 +8,16 @@ export default defineNuxtConfig({
 
   css: ['@/assets/css/main.css'],
 
-  modules: ['@nuxt/ui', '@nuxt/eslint'],
+  modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/mdc'],
 
   runtimeConfig: {
     openaiApiKey: '',
+  },
+
+  mdc: {
+    highlight: {
+      theme: 'github-light',
+      langs: ['html', 'markdown', 'javascript', 'typescript', 'vue'],
+    },
   },
 });
