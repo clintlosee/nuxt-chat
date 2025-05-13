@@ -2,7 +2,7 @@
 import type { ChatMessage, Chat } from '~/types';
 
 const props = defineProps<{
-  chat: Chat;
+  chat?: Chat;
   messages: ChatMessage[];
   typing: boolean;
 }>();
