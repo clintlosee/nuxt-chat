@@ -50,45 +50,25 @@ async function handleCreateChat() {
         <div class="flex justify-between items-center mb-2">
           <h2 class="text-sm font-semibold text-(--ui-text-muted)">Today</h2>
         </div>
-        <UNavigationMenu
-          orientation="vertical"
-          class="w-full mb-4"
-          default-open
-          :items="todayChats"
-        />
+        <UNavigationMenu orientation="vertical" class="w-full mb-4" :items="todayChats" />
       </div>
       <div v-if="lastWeekChats.length > 0" class="mb-4">
         <div class="flex justify-between items-center mb-2">
           <h2 class="text-sm font-semibold text-(--ui-text-muted)">Last 7 Days</h2>
         </div>
-        <UNavigationMenu
-          orientation="vertical"
-          class="w-full mb-4"
-          default-open
-          :items="lastWeekChats"
-        />
+        <UNavigationMenu orientation="vertical" class="w-full mb-4" :items="lastWeekChats" />
       </div>
       <div v-if="lastMonthChats.length > 0" class="mb-4">
         <div class="flex justify-between items-center mb-2">
           <h2 class="text-sm font-semibold text-(--ui-text-muted)">Last Month</h2>
         </div>
-        <UNavigationMenu
-          orientation="vertical"
-          class="w-full mb-4"
-          default-open
-          :items="lastMonthChats"
-        />
+        <UNavigationMenu orientation="vertical" class="w-full mb-4" :items="lastMonthChats" />
       </div>
       <div v-if="olderChats.length > 0" class="mb-4">
         <div class="flex justify-between items-center mb-2">
           <h2 class="text-sm font-semibold text-(--ui-text-muted)">Older</h2>
         </div>
-        <UNavigationMenu
-          orientation="vertical"
-          class="w-full mb-4"
-          default-open
-          :items="olderChats"
-        />
+        <UNavigationMenu orientation="vertical" class="w-full mb-4" :items="olderChats" />
       </div>
     </div>
     <div v-else class="overflow-y-auto p-4">
