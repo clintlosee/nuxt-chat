@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ChatMessage, Chat } from '~/types';
+import type { ChatMessage, Chat } from '../../shared/types/types';
 
 const props = defineProps<{
   chat?: Chat;
@@ -31,7 +31,7 @@ watch(() => props.messages, pinToBottom, { deep: true });
       <template v-else>
         <div class="chat-header">
           <h1 class="title">
-            {{ chat?.title || 'Untitled Chat' }}
+            <TypewriterText :text="chat?.title || 'Untitled Chat'" />
           </h1>
         </div>
         <div class="messages-container">
@@ -73,9 +73,10 @@ watch(() => props.messages, pinToBottom, { deep: true });
 /* ===== Layout & Container Styles ===== */
 .scroll-container {
   overflow-y: auto;
-  height: 100%;
   width: 100%;
   box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .chat-container {
