@@ -10,9 +10,15 @@ export default function useChat(chatId: string) {
   });
 
   async function fetchMessages({ refresh = false }: { refresh?: boolean } = {}) {
-    if ((!refresh && status.value !== 'idle') || !chat.value) {
+    const hasExistingMessages = messages.value.length > 0;
+    const isRequestInProgress = status.value !== 'idle';
+    const shouldSkipDueToExistingState = !refresh && (hasExistingMessages || isRequestInProgress);
+
+    if (shouldSkipDueToExistingState || !chat.value) {
       return;
     }
+
+    console.log('Fetch chats', chat.value.title);
     await execute();
     chat.value.messages = data.value;
   }
